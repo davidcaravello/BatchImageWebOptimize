@@ -4,9 +4,10 @@ As quickly as possible wrote this little utilty that allows for batch quality co
 Requires [ImageMagick](https://www.imagemagick.org/script/index.php) portable to be extract the <code>im</code> directory at the same level as the produced executable.
 
 Resulting directory structure once compiled should be something like this:
-<code>
+
+<pre><code>
 |-- im
 |   |-- convert.exe
 |   |-- magic.xml
 |-- BatchImageWebOptimize.exe
-</code>
+</code></pre>
