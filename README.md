@@ -6,7 +6,7 @@ Requires [ImageMagick](https://www.imagemagick.org/script/index.php) portable ve
 Resulting directory structure once compiled should be something like this:
 
 <pre><code>
-|-- im
+|-- im/
 |   |-- convert.exe
 |   |-- magic.xml
 |-- BatchImageWebOptimize.exe
