@@ -9,5 +9,6 @@ Resulting directory structure once compiled should be something like this:
 |-- im/
 |   |-- convert.exe
 |   |-- magic.xml
+|   |-- ...
 |-- BatchImageWebOptimize.exe
 </code></pre>
