@@ -46,5 +46,17 @@ namespace BatchImageWebOptimize.Properties {
                 this["outputPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(".jpg, .jpeg")]
+        public string sourceFileTypes {
+            get {
+                return ((string)(this["sourceFileTypes"]));
+            }
+            set {
+                this["sourceFileTypes"] = value;
+            }
+        }
     }
 }

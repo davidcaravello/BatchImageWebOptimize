@@ -42,6 +42,8 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.progressLabel = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.sourceFileTypesTextBox = new System.Windows.Forms.TextBox();
+            this.sourceFileTypesLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.qualityTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +75,7 @@
             // 
             // outputImageBrowseButton
             // 
-            this.outputImageBrowseButton.Location = new System.Drawing.Point(689, 35);
+            this.outputImageBrowseButton.Location = new System.Drawing.Point(689, 60);
             this.outputImageBrowseButton.Name = "outputImageBrowseButton";
             this.outputImageBrowseButton.Size = new System.Drawing.Size(84, 23);
             this.outputImageBrowseButton.TabIndex = 8;
@@ -83,7 +85,7 @@
             // 
             // outputImageTextBox
             // 
-            this.outputImageTextBox.Location = new System.Drawing.Point(116, 38);
+            this.outputImageTextBox.Location = new System.Drawing.Point(116, 63);
             this.outputImageTextBox.Name = "outputImageTextBox";
             this.outputImageTextBox.Size = new System.Drawing.Size(567, 20);
             this.outputImageTextBox.TabIndex = 7;
@@ -91,7 +93,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 41);
+            this.label3.Location = new System.Drawing.Point(11, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 13);
             this.label3.TabIndex = 6;
@@ -99,7 +101,7 @@
             // 
             // qualityTrackBar
             // 
-            this.qualityTrackBar.Location = new System.Drawing.Point(116, 79);
+            this.qualityTrackBar.Location = new System.Drawing.Point(116, 89);
             this.qualityTrackBar.Maximum = 100;
             this.qualityTrackBar.Minimum = 10;
             this.qualityTrackBar.Name = "qualityTrackBar";
@@ -113,7 +115,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(70, 88);
+            this.label4.Location = new System.Drawing.Point(70, 98);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 10;
@@ -121,7 +123,7 @@
             // 
             // optimzeButton
             // 
-            this.optimzeButton.Location = new System.Drawing.Point(10, 117);
+            this.optimzeButton.Location = new System.Drawing.Point(10, 127);
             this.optimzeButton.Name = "optimzeButton";
             this.optimzeButton.Size = new System.Drawing.Size(664, 102);
             this.optimzeButton.TabIndex = 11;
@@ -131,7 +133,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(11, 226);
+            this.progressBar1.Location = new System.Drawing.Point(11, 236);
             this.progressBar1.Maximum = 1000;
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(663, 23);
@@ -141,7 +143,7 @@
             // qualityLabel
             // 
             this.qualityLabel.AutoSize = true;
-            this.qualityLabel.Location = new System.Drawing.Point(690, 88);
+            this.qualityLabel.Location = new System.Drawing.Point(690, 98);
             this.qualityLabel.Name = "qualityLabel";
             this.qualityLabel.Size = new System.Drawing.Size(0, 13);
             this.qualityLabel.TabIndex = 13;
@@ -157,7 +159,7 @@
             // progressLabel
             // 
             this.progressLabel.BackColor = System.Drawing.SystemColors.Control;
-            this.progressLabel.Location = new System.Drawing.Point(680, 226);
+            this.progressLabel.Location = new System.Drawing.Point(680, 236);
             this.progressLabel.Name = "progressLabel";
             this.progressLabel.Size = new System.Drawing.Size(96, 23);
             this.progressLabel.TabIndex = 14;
@@ -167,7 +169,7 @@
             // cancelButton
             // 
             this.cancelButton.Enabled = false;
-            this.cancelButton.Location = new System.Drawing.Point(680, 117);
+            this.cancelButton.Location = new System.Drawing.Point(680, 127);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(93, 102);
             this.cancelButton.TabIndex = 15;
@@ -175,11 +177,29 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // sourceFileTypesTextBox
+            // 
+            this.sourceFileTypesTextBox.Location = new System.Drawing.Point(116, 37);
+            this.sourceFileTypesTextBox.Name = "sourceFileTypesTextBox";
+            this.sourceFileTypesTextBox.Size = new System.Drawing.Size(567, 20);
+            this.sourceFileTypesTextBox.TabIndex = 17;
+            // 
+            // sourceFileTypesLabel
+            // 
+            this.sourceFileTypesLabel.AutoSize = true;
+            this.sourceFileTypesLabel.Location = new System.Drawing.Point(11, 40);
+            this.sourceFileTypesLabel.Name = "sourceFileTypesLabel";
+            this.sourceFileTypesLabel.Size = new System.Drawing.Size(95, 13);
+            this.sourceFileTypesLabel.TabIndex = 16;
+            this.sourceFileTypesLabel.Text = "Source File Types:";
+            // 
             // MainDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 261);
+            this.ClientSize = new System.Drawing.Size(787, 271);
+            this.Controls.Add(this.sourceFileTypesTextBox);
+            this.Controls.Add(this.sourceFileTypesLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.progressLabel);
             this.Controls.Add(this.qualityLabel);
@@ -220,6 +240,8 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label progressLabel;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.TextBox sourceFileTypesTextBox;
+        private System.Windows.Forms.Label sourceFileTypesLabel;
     }
 }
 

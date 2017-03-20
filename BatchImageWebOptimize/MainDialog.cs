@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Collections;
 
 namespace BatchImageWebOptimize
 {
@@ -20,6 +21,7 @@ namespace BatchImageWebOptimize
 
             sourceImageTextBox.Text = Properties.Settings.Default.sourcePath;
             outputImageTextBox.Text = Properties.Settings.Default.outputPath;
+            sourceFileTypesTextBox.Text = Properties.Settings.Default.sourceFileTypes;
 
             updateQualityLabel();
             //progressLabel.Parent = progressBar1;
@@ -78,6 +80,7 @@ namespace BatchImageWebOptimize
         {
             public string SourcePath;
             public string OutputPath;
+            public ArrayList SourceFileTypes;
             public int Quality;
         }
 
@@ -93,6 +96,7 @@ namespace BatchImageWebOptimize
                 guiData.Quality = qualityTrackBar.Value;
                 guiData.SourcePath = sourceImageTextBox.Text;
                 guiData.OutputPath = outputImageTextBox.Text;
+                guiData.SourceFileTypes = getSourceFileTypeExtensions(sourceFileTypesTextBox.Text);
 
                 if( String.IsNullOrEmpty(guiData.SourcePath) || !Directory.Exists(guiData.SourcePath) )
                 {
@@ -146,7 +150,7 @@ namespace BatchImageWebOptimize
 
                 DirectoryInfo dirInfo = new DirectoryInfo(guiData.SourcePath);
 
-                IEnumerable<FileInfo> files = GetFilesByExtensions(dirInfo, ".jpg");
+                IEnumerable<FileInfo> files = GetFilesByExtensions(dirInfo, (string []) guiData.SourceFileTypes.ToArray(typeof(string)));
 
                 int numFilesToConvert = files.Count();
                 int currentFileIndex = 0;
@@ -191,10 +195,10 @@ namespace BatchImageWebOptimize
 
                     proc.WaitForExit();
 
-                    Console.WriteLine("Standard Output: ");
-                    Console.WriteLine(standardOutput);
-                    Console.WriteLine("Standard Error: ");
-                    Console.WriteLine(standardError);
+                    //Console.WriteLine("Standard Output: ");
+                    //Console.WriteLine(standardOutput);
+                    //Console.WriteLine("Standard Error: ");
+                    //Console.WriteLine(standardError);
 
                     string statusText = currentFileIndex + " / " + numFilesToConvert;
 
@@ -275,6 +279,7 @@ namespace BatchImageWebOptimize
         {
             Properties.Settings.Default.sourcePath = sourceImageTextBox.Text;
             Properties.Settings.Default.outputPath = outputImageTextBox.Text;
+            Properties.Settings.Default.sourceFileTypes = sourceFileTypesTextBox.Text;
             Properties.Settings.Default.Save();
             Console.WriteLine("Settings Saved");
         }
@@ -282,6 +287,22 @@ namespace BatchImageWebOptimize
         private void MainDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
             saveSettings();
+        }
+
+        private ArrayList getSourceFileTypeExtensions(string rawCSV)
+        {
+            ArrayList result = new ArrayList();
+
+            string[] splitCSV = rawCSV.Split(',');
+
+            foreach(string csvValue in splitCSV)
+            {
+                string trimedValue = csvValue.Trim();
+                if (trimedValue.StartsWith("."))
+                    result.Add(trimedValue);
+            }
+
+            return result;
         }
     }
 }
